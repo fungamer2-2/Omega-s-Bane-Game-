@@ -1635,32 +1635,38 @@ void Combat() {
 // Funciton that handles randomising the type of potion the player gets.
 void GetRandomPotion() {
 	srand(time(0));
-	int potion = 1 + rand() % 6;
-	switch (potion) {
-	case 1:
-		cout << "You found a health potion!" << endl;
-		player.potions.push_back("Health Potion");
-		break;
-	case 2:
-		cout << "You found a shield potion!" << endl;
-		player.potions.push_back("Shield Potion");
-		break;
-	case 3:
-		cout << "You found a stamina potion!" << endl;
-		player.potions.push_back("Stamina Potion");
-		break;
-	case 4:
-		cout << "You found a strong health potion!" << endl;
-		player.potions.push_back("Strong Health Potion");
-		break;
-	case 5:
-		cout << "You found a strong shield potion!" << endl;
-		player.potions.push_back("Strong Shield Potion");
-		break;
-	case 6:
-		cout << "You found a strong stamina potion!" << endl;
-		player.potions.push_back("Strong Stamina Potion");
-		break;
+	int potion = 1 + rand() % 3;
+	
+	if (1 + rand() % 3 == 1) { //1/3 chance of strong potion
+		switch (potion) {
+		case 1:
+			cout << "You found a strong health potion!" << endl;
+			player.potions.push_back("Strong Health Potion");
+			break;
+		case 2:
+			cout << "You found a strong shield potion!" << endl;
+			player.potions.push_back("Strong Shield Potion");
+			break;
+		case 3:
+			cout << "You found a strong stamina potion!" << endl;
+			player.potions.push_back("Strong Stamina Potion");
+			break;
+		}
+	} else {
+		switch (potion) {
+		case 1:
+			cout << "You found a health potion!" << endl;
+			player.potions.push_back("Health Potion");
+			break;
+		case 2:
+			cout << "You found a shield potion!" << endl;
+			player.potions.push_back("Shield Potion");
+			break;
+		case 3:
+			cout << "You found a stamina potion!" << endl;
+			player.potions.push_back("Stamina Potion");
+			break;
+		}
 	}
 }
 
